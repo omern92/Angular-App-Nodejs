@@ -17,7 +17,7 @@ var app = express();
 app.use(session);
 
 var corsOptions = {
-  origin: process.env.ORIGIN,
+  origin: "*",
   credentials: true
 }
 
