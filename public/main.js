@@ -100,6 +100,7 @@ var AddEmpComponent = /** @class */ (function () {
         this.employeeService.addEmployee(newEmployee)
             .subscribe(function (res) {
             _this.toastr.success(res.message, 'Done!');
+            _this.router.navigate(['/home']);
         }, function (errorRes) {
             _this.toastr.error(errorRes.error.message, 'We are sorry...');
         });
@@ -208,6 +209,7 @@ var AddProjectComponent = /** @class */ (function () {
         this.projectService.addProject(newProject)
             .subscribe(function (res) {
             _this.toastr.success(res.message, 'Done!');
+            _this.router.navigate(['/home']);
         }, function (errorRes) {
             _this.toastr.error(errorRes.error.message, 'We are sorry...');
         });
