@@ -23,9 +23,6 @@ var corsOptions = {
 
 app.use(cors(corsOptions)); 
 
-// app.set('view engine', 'ejs');
-// app.engine('html', require('ejs').renderFile);
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
@@ -37,7 +34,7 @@ app.use('/api',api);
 app.use('*',api);
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(process.env.PORT || 3000, () => {
