@@ -71,10 +71,22 @@ async function updateProjectEmp(req, res) {
     res.json({ message: `Project "${newProject.name}" updated successfully.` });
 
   } catch(err) {
-    res.status(500).json('Could not update the project.');
+    res.status(500).json({ message: 'Could not update the project.' });
+  }
+}
+
+async function countProjects(req, res) {
+  try {
+    const mobile = await DB.Project.countDocuments({ designation: 'Mobile' });
+    const web    = await DB.Project.countDocuments({ designation: 'Web' });
+    const array  = [mobile, web];
+    res.json(array);
+
+  } catch(err) {
+    res.status(500).json({ message: 'Something went wrong' });
   }
 }
 
 
 
-module.exports = { getProjects, getProject, addProject, updateProject, getProjectEmp, updateProjectEmp }
+module.exports = { getProjects, getProject, addProject, updateProject, getProjectEmp, updateProjectEmp, countProjects }

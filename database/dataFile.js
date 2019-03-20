@@ -1,7 +1,7 @@
 var mongoose      = require('mongoose');
 // const { DB_URI }  = require('../env_var');
 
-var dbURI = process.env.dbURI;
+var dbURI = 'mongodb+srv://omern:a741963@cluster0-rwt5r.mongodb.net/Employees?retryWrites=true';
 
 mongoose.connect(dbURI, { useNewUrlParser: true }, (error) => {
   if (error) {

@@ -18,12 +18,14 @@ router.get('/employees/search/:name', employees.getEmpByName);
 // Projects
 router.get('/projects', projects.getProjects);
 router.post('/projects', projects.addProject);
+router.get('/projects/count', projects.countProjects);
 
 router.get('/projects/:id', projects.getProject);
 router.post('/projects/:id', authChecker, projects.updateProject);
 
 router.get('/projects/:id/employees', projects.getProjectEmp);
 router.post('/projects/:id/employees', authChecker, projects.updateProjectEmp);
+
 
 // Login and Logout
 router.get('/auth/login', auth.getLogin);
